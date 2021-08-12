@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/space1"
     tools:context=".MainActivity">
 
     <Button
@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-        android:text="Partita Veloce"
+        android:text="Partita veloce"
+        app:backgroundTint="@color/Verdone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.213"
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
         android:text="Login"
+        app:backgroundTint="@color/AzzuroVero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button"
@@ -36,7 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="BOSS"
+        android:textAllCaps="true"
+        android:textColor="@color/GialloDeciso"
+        android:textIsSelectable="false"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:text="SHOWDOWN!"
+        android:textColor="@color/AranCHAD"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
