@@ -11,7 +11,7 @@
         android:theme="@style/Theme.BossShowdown">
         <activity android:name=".GameActivity"></activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

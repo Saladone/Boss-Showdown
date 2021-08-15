@@ -3,10 +3,10 @@ package com.example.boss_showdown
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class RegisterActivity : AppCompatActivity() {
+class InfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_info)
 
         val actionbar= supportActionBar
         actionbar!!.title= "Registrazione"
