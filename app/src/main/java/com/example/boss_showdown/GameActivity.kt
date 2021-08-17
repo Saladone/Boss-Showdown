@@ -7,5 +7,11 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        val actionbar= supportActionBar
+        actionbar!!.title= "Partita in corso"
+        actionbar.setHomeButtonEnabled(false)
     }
+
+
 }

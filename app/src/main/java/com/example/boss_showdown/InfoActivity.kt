@@ -9,7 +9,7 @@ class InfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_info)
 
         val actionbar= supportActionBar
-        actionbar!!.title= "Registrazione"
+        actionbar!!.title= "Info sul gioco"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 

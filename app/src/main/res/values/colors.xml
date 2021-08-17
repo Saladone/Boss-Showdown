@@ -16,4 +16,11 @@
     <color name="Grigino">#688584</color>
     <color name="BluSbiadito">#3F51B5</color>
     <color name="Indaco">#022591</color>
+    <color name="Celeste">#00E1FF</color>
+    <color name="BluPuro">#0000FF</color>
+    <color name="RossoPuro">#FF0000</color>
+    <color name="VerdePuro">#00FF00</color>
+    <color name="CianoPuro">#00FFFF</color>
+    <color name="GialloPuro">#FFFF00</color>
+    <color name="MagentaPuro">#FF00FF</color>
 </resources>
