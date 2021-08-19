@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="Login"
+        android:onClick="gotoLogin"
         app:backgroundTint="@color/AzzuroVero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
