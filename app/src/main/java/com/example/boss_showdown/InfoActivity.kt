@@ -3,13 +3,13 @@ package com.example.boss_showdown
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class LoginActivity : AppCompatActivity() {
+class InfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_info)
 
         val actionbar= supportActionBar
-        actionbar!!.title= "Login e Registrazione"
+        actionbar!!.title= "Info sul gioco"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
