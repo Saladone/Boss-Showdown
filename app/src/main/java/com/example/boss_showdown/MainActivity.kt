@@ -20,4 +20,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun gotoInfo(view: View){
+
+        val intent = Intent(this@MainActivity,InfoActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun gotoGame(view: View){
+
+        val intent = Intent(this@MainActivity,GameActivity::class.java)
+        intent.putExtra("Livello_ID", 20)
+        intent.putExtra("Tipo_ID", 0)
+    }
+
+
 }
