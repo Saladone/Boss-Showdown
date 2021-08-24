@@ -5,19 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.example.boss_showdown.databinding.ActivityInfoBinding
 import kotlinx.android.synthetic.main.fragmenttext.*
 
-class InfoActivity : AppCompatActivity() {
-
-    var pos=0
-    var stato=0
-
-    lateinit var binding: ActivityInfoBinding
+class FragmentText() : Fragment(R.layout.fragmenttext) {
 
     val Str0="Benvenuto su Boss Showdown.\nL'obiettivo del gioco e' quello di affrontare il BOSS per accumulare punti."
     val Str1="Si tratta di un avversario formidabile, non e' possibile batterlo.\nTuttavia, ad ogni danno che infliggi ottieni punti in modo direttamente proporzionale."
@@ -32,89 +23,50 @@ class InfoActivity : AppCompatActivity() {
     val Str10="Il gioco si svolge un turno per ognuno e il Boss rispondera' adeguatamente ad ogni tua mossa.\nCiclicamente, dopo che saranno passati alcuni turni, il Boss attacchera' con un colpo devastante che ignorera' il tuo modificatore di difesa(ma non la guardia), quando questo accade il suo attacco sale e la sua difesa cala per tutta la partita.\nStai in guardia."
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding= ActivityInfoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        replaceFragmentText()
 
-        val actionbar= supportActionBar
-        actionbar!!.title= "Info sul gioco"
-        actionbar.setDisplayHomeAsUpEnabled(true)
-}
+   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+       val view = inflater.inflate(R.layout.fragmenttext, container, false)
+       val testo: TextView = view.findViewById(R.id.textView)
 
-override fun onSupportNavigateUp(): Boolean {
-   onBackPressed()
-   return true
-}
+       val args = this.arguments
 
-fun posUp(view: View){
+       val pos = args?.get("data")
 
-   if(pos<10){
-       pos = pos+1
+       if(pos==0){
+           testo.text=Str0
+       }
+       if(pos==1){
+           testo.text=Str1
+       }
+       if(pos==2){
+           testo.text=Str2
+       }
+       if(pos==3){
+           testo.text=Str3
+       }
+       if(pos==4){
+           testo.text=Str4
+       }
+       if(pos==5){
+           testo.text=Str5
+       }
+       if(pos==6){
+           testo.text=Str6
+       }
+       if(pos==7){
+           testo.text=Str7
+       }
+       if(pos==8){
+           testo.text=Str8
+       }
+       if(pos==9){
+           testo.text=Str9
+       }
+       if(pos==10){
+           testo.text=Str10
+       }
+
+       return view
    }
-    if(stato==0){
-       replaceFragmentText()
-    }
-    else{
-        replaceFragmentView()
-    }
-
-}
-
-fun posDown(view: View){
-
-   if(pos>0) {
-       pos = pos-1
-   }
-    if(stato==0){
-        replaceFragmentText()
-    }
-    else{
-        replaceFragmentView()
-    }
-}
-
-fun screenClick(view: View){
-
-   stato=1
-   replaceFragmentView()
-
-}
-
-fun textClick(view: View){
-
-   stato=0
-   replaceFragmentText()
-
-}
-
-
-    private fun replaceFragmentText(){
-
-        val bundle = Bundle()
-        bundle.putInt("data",pos)
-        val fragment= FragmentText()
-        fragment.arguments=bundle
-        val fragmentManager= supportFragmentManager
-        val fragmentTransaction= fragmentManager.beginTransaction()
-
-        fragmentTransaction.replace(R.id.fragmentContainer,fragment)
-        fragmentTransaction.commit()
-
-}
-    private fun replaceFragmentView(){
-
-        val bundle = Bundle()
-        bundle.putInt("data",pos)
-        val fragment= FragmentView()
-        fragment.arguments=bundle
-        val fragmentManager= supportFragmentManager
-        val fragmentTransaction= fragmentManager.beginTransaction()
-
-        fragmentTransaction.replace(R.id.fragmentContainer,fragment)
-        fragmentTransaction.commit()
-
-    }
 
 }
