@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this@MainActivity,GameActivity::class.java)
         intent.putExtra("Livello_ID", 20)
         intent.putExtra("Tipo_ID", 0)
+        startActivity(intent)
     }
 
 
