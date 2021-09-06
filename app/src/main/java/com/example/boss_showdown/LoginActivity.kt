@@ -1,7 +1,9 @@
 package com.example.boss_showdown
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,4 +19,19 @@ class LoginActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+    fun Procedi(view: View){
+
+
+        val intent = Intent(this@LoginActivity,MenuActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun gotoRegistra(view: View){
+
+        val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.boss_showdown
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -236,12 +237,24 @@ class GameActivity : AppCompatActivity() {
 
         if(tipo==1){
 
+            SaveAndReturn()
         }
         else{
+
+            Quit()
 
         }
 
     }
 
+    private fun Quit(){
 
+        val intent = Intent(this@GameActivity,MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun SaveAndReturn(){
+
+
+    }
 }
