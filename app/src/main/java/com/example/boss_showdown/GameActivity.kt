@@ -14,9 +14,9 @@ class GameActivity : AppCompatActivity() {
 
 
     private var tipo=0
-    private var livello=0
-    private var ps=130
-    private var psmax=130
+    private var livello=1
+    private var ps=150
+    private var psmax=150
     private var punti=0
     private var turno=1
     private var attacco=100
@@ -51,6 +51,10 @@ class GameActivity : AppCompatActivity() {
         val turn: TextView = findViewById(R.id.textViewTurno)
         val point: TextView = findViewById(R.id.textViewPunti)
         val salute: TextView = findViewById(R.id.textViewPS)
+        attacco=attacco+((attacco/100)*(livello-1)*10)
+        difesa=difesa+((difesa/100)*(livello-1)*10)
+        psmax=psmax+((psmax/100)*(livello-1)*10)
+        ps=psmax
 
         turn.setText("Turno: $turno")
         point.setText("Punti: $punti")
@@ -188,7 +192,7 @@ class GameActivity : AppCompatActivity() {
 
         punti= punti+roll
         point.setText("Punti: $punti")
-        testo.setText("-Wojak Mascherato sferra un attacco a piena potenza infliggendo $roll PS di danno al Boss Gigachad restando tuttavia scoperto per il contrattacco nemico")
+        testo.setText("-Wojak Mascherato sferra un attacco a piena potenza infliggendo $roll PS di danno al Boss Gigachad restando tuttavia scoperto per il contrattacco nemico!")
 
         TurnoBoss()
     }
@@ -197,7 +201,7 @@ class GameActivity : AppCompatActivity() {
 
         val testo: TextView = findViewById(R.id.textViewCronistoria)
         stato=2
-        testo.setText("-Wojak Mascherato assume una posizione di guardia per ridurre i danni del prossimo attacco.")
+        testo.setText("-Wojak Mascherato assume una posizione di guardia per ridurre i danni del prossimo attacco!")
         TurnoBoss()
     }
 
@@ -209,7 +213,7 @@ class GameActivity : AppCompatActivity() {
         val prima=ps
         val dopo:Int
         if(scarto==0){
-            testo.setText("-Wojak Mascherato e' talmente stunnato da provare a curarsi pur essendo in piena salute")
+            testo.setText("-Wojak Mascherato e' talmente stunnato da provare a curarsi pur essendo in piena salute...")
         }
         else {
             ps = ps + psmax / 2
@@ -218,7 +222,7 @@ class GameActivity : AppCompatActivity() {
             }
             dopo=ps-prima
             salute.setText("PS: $ps / $psmax")
-            testo.setText("-Wojak Mascherato ha recuperto $dopo PS")
+            testo.setText("-Wojak Mascherato ha recuperto $dopo PS!")
         }
         TurnoBoss()
     }
