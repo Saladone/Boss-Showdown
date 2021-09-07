@@ -23,4 +23,5 @@
     <color name="CianoPuro">#00FFFF</color>
     <color name="GialloPuro">#FFFF00</color>
     <color name="MagentaPuro">#FF00FF</color>
+    <color name="GialloSpento">#B19D39</color>
 </resources>

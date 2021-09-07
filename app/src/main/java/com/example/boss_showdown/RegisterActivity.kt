@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
 
         val actionbar= supportActionBar
-        actionbar!!.title= "Zona Login"
+        actionbar!!.title= "Zona Registrazione"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -20,17 +20,11 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    fun Procedi(view: View){
+    fun RegistraERitorna(view: View){
 
 
-        val intent = Intent(this@LoginActivity,MenuActivity::class.java)
-        startActivity(intent)
 
-    }
-
-    fun gotoRegistra(view: View){
-
-        val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
+        val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
         startActivity(intent)
     }
 
