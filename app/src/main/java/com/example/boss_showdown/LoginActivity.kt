@@ -11,7 +11,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val actionbar= supportActionBar
-        actionbar!!.title= "Login e Registrazione"
+        actionbar!!.title= "Zona Login"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
