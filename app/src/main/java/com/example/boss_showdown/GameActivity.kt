@@ -239,26 +239,18 @@ class GameActivity : AppCompatActivity() {
 
     private fun Endgame(){
 
-        if(tipo==1){
-
-            SaveAndReturn()
-        }
-        else{
-
-            Quit()
-
-        }
-
-    }
-
-    private fun Quit(){
-
-        val intent = Intent(this@GameActivity,MainActivity::class.java)
+        val intent = Intent(this@GameActivity,ResultsActivity::class.java)
+        intent.putExtra("Punti", punti)
+        intent.putExtra("Turno", turno)
+        intent.putExtra("Tipo", tipo)
         startActivity(intent)
     }
 
-    private fun SaveAndReturn(){
+  /*  private fun Quit(){
 
+        val intent = Intent(this@GameActivity,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }*/
 
-    }
 }

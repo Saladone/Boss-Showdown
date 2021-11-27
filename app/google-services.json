@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "92157024429",
+    "project_id": "boss-showdown",
+    "storage_bucket": "boss-showdown.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92157024429:android:0d428208e43c01e38c4e24",
+        "android_client_info": {
+          "package_name": "com.example.boss_showdown"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92157024429-64j0gmcleenl8v42r5istjmk5kkjv13u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvBfK10J6nXrU6DgSmvhVZQuQxqT1Alz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92157024429-64j0gmcleenl8v42r5istjmk5kkjv13u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

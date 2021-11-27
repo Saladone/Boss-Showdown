@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.392" />
 
     <TextView
-        android:id="@+id/textViewLoginData"
+        android:id="@+id/textViewData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="0.111" />
 
     <TextView
-        android:id="@+id/textViewLoginEmail"
+        android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <TextView
-        android:id="@+id/textViewLoginPassword"
+        android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.598" />
 
     <EditText
-        android:id="@+id/editTextLoginPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -87,7 +87,7 @@
         app:layout_constraintVertical_bias="0.692" />
 
     <TextView
-        android:id="@+id/textViewLoginMess"
+        android:id="@+id/textViewMess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
@@ -109,7 +109,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="-3dp"
         android:text="Registrati"
-        android:onClick="RegistraERitorna"
         android:textColor="@color/black"
         app:backgroundTint="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,6 +138,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"

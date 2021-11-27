@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     fun gotoGame(view: View){
 
         val intent = Intent(this@MainActivity,GameActivity::class.java)
-        intent.putExtra("Livello_ID", 5)
+        intent.putExtra("Livello_ID", 7)
         intent.putExtra("Tipo_ID", 0)
         startActivity(intent)
     }
