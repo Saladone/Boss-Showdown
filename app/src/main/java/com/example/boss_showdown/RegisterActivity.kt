@@ -28,14 +28,14 @@ class RegisterActivity : AppCompatActivity() {
         actionbar!!.title= "Zona Registrazione"
         actionbar.setDisplayHomeAsUpEnabled(true)
 
-        binding.buttonLoginRegistrati.setOnClickListener{
+        binding.buttonRegistrati.setOnClickListener{
 
-            if(editTextUsername.text.toString().isEmpty()){
+            if(editTextUsername.text.toString().isBlank()){
                 editTextUsername.error="Per favore inserire un username"
                 editTextUsername.requestFocus()
             }
 
-            else if(editTextEmail.text.toString().isEmpty()){
+            else if(editTextEmail.text.toString().isBlank()){
                 editTextEmail.error="Per favore inserire un indirizzo email"
                 editTextEmail.requestFocus()
             }
@@ -45,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
                 editTextEmail.requestFocus()
             }
 
-            else if(editTextPassword.text.toString().isEmpty()){
+            else if(editTextPassword.text.toString().isBlank()){
                 editTextPassword.error="Per favore inserire una password"
                 editTextPassword.requestFocus()
             }
@@ -54,20 +54,22 @@ class RegisterActivity : AppCompatActivity() {
                 val email = binding.editTextEmail.text.toString()
                 val password = binding.editTextPassword.text.toString()
 
-                database = FirebaseDatabase.getInstance("https://boss-showdown-default-rtdb.europe-west1.firebasedatabase.app").getReference("Utenti")
-                val Utente = Utente(username, email, password, 0)
-                database.child(username).setValue(Utente).addOnSuccessListener {
-
-                    textViewMess.setText("Registrazione effettuata con successo!")
-                }.addOnFailureListener {
-
-                    textViewMess.setText("Si e' verificato un problema con la registrazione!")
-                }
                 auth.createUserWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
-                            finish()
+                            val user = auth.currentUser
+                            val uid  = user?.uid
+                            database = FirebaseDatabase.getInstance("https://boss-showdown-default-rtdb.europe-west1.firebasedatabase.app").getReference("Utenti")
+                            val Utente = Utente(uid.toString(),username, email, password, 0)
+                            database.child(uid.toString()).setValue(Utente).addOnSuccessListener {
+
+                                textViewMess.setText("Registrazione effettuata con successo!")
+                                startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
+                                finish()
+                            }.addOnFailureListener {
+
+                                textViewMess.setText("Si e' verificato un problema con la registrazione!")
+                            }
                         } else {
                             Toast.makeText(baseContext, "Non sei riuscito a registrarti",
                                 Toast.LENGTH_SHORT).show()
@@ -81,42 +83,4 @@ class RegisterActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
-    fun RegistraERitorna(view: View){
-
-        if(editTextUsername.text.toString().isEmpty()){
-            editTextUsername.error="Per favore inserire un username"
-            editTextUsername.requestFocus()
-            return
-        }
-
-        if(editTextEmail.text.toString().isEmpty()){
-            editTextEmail.error="Per favore inserire un indirizzo email"
-            editTextEmail.requestFocus()
-            return
-        }
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text.toString()).matches()){
-            editTextEmail.error="Per favore inserire un indirizzo email valido"
-            editTextEmail.requestFocus()
-            return
-        }
-
-        if(editTextPassword.text.toString().isEmpty()){
-            editTextPassword.error="Per favore inserire una password"
-            editTextPassword.requestFocus()
-            return
-        }
-
-        auth.createUserWithEmailAndPassword(editTextEmail.text.toString(), editTextPassword.text.toString())
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                   startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
-                   finish()
-                } else {
-                    Toast.makeText(baseContext, "Non sei riuscito a registrarti",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
 }
