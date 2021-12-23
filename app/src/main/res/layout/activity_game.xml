@@ -59,42 +59,40 @@
         android:layout_width="120dp"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginBottom="15dp"
-        android:text="Attacco normale"
         android:onClick="doAttacco"
+        android:text="Attacco normale"
         app:backgroundTint="@color/AranCHAD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonAttaccoP"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCronistoria"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/buttonAttaccoP"
         android:layout_width="120dp"
         android:layout_height="55dp"
         android:layout_marginBottom="15dp"
-        android:text="Attacco pesante"
         android:onClick="doAttaccoP"
+        android:text="Attacco pesante"
         app:backgroundTint="@color/RossoSerio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCronistoria"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/buttonGuardia"
         android:layout_width="120dp"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Guardia"
         android:onClick="doGuardia"
+        android:text="Guardia"
         app:backgroundTint="@color/Verdone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +105,6 @@
         android:layout_width="120dp"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:onClick="doCura"
         android:text="Cura"
@@ -115,7 +112,7 @@
         app:backgroundTint="@color/BluPuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toEndOf="@+id/buttonGuardia"
         app:layout_constraintTop_toBottomOf="@+id/buttonAttaccoP" />
 
