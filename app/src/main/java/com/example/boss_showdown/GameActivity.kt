@@ -14,10 +14,12 @@ class GameActivity : AppCompatActivity() {
 
 
     private var tipo=0
+    private var uid: String=""
     private var livello=1
     private var ps=150
     private var psmax=150
     private var punti=0
+    private var totalpoints:Long=0
     private var turno=1
     private var attacco=100
     private var difesa= 70
@@ -25,6 +27,7 @@ class GameActivity : AppCompatActivity() {
     private var difesaB = 50
     private var stato=0
     private var mul=1
+    private var username:String="Wojack Mascherato"
 
 
 
@@ -39,6 +42,11 @@ class GameActivity : AppCompatActivity() {
 
         tipo = intent.getIntExtra("Tipo_ID", 0)
         livello = intent.getIntExtra("Livello_ID", 1)
+        username = intent.getStringExtra("Username").toString()
+        totalpoints = intent.getIntExtra("Punti",0).toLong()
+        if(tipo==1){
+            uid=intent.getStringExtra("id").toString()
+        }
         SetGame(livello)
      //   val testo: TextView = findViewById(R.id.textViewCronistoria)
 
@@ -51,14 +59,22 @@ class GameActivity : AppCompatActivity() {
         val turn: TextView = findViewById(R.id.textViewTurno)
         val point: TextView = findViewById(R.id.textViewPunti)
         val salute: TextView = findViewById(R.id.textViewPS)
-        attacco=attacco+((attacco/100)*(livello-1)*10)
-        difesa=difesa+((difesa/100)*(livello-1)*10)
-        psmax=psmax+((psmax/100)*(livello-1)*10)
+        if(livello<50) {
+            attacco = attacco + ((attacco / 100) * (livello - 1) * 5)
+            difesa = difesa + ((difesa / 100) * (livello - 1) * 5)
+            psmax = psmax + ((psmax / 100) * (livello - 1) * 5)
+        }
+        else{
+            attacco = attacco + ((attacco / 100) * livello * 5)
+            difesa = difesa + ((difesa / 100) * livello * 5)
+            psmax = psmax + ((psmax / 100) * livello * 5)
+        }
+
         ps=psmax
 
         turn.setText("Turno: $turno")
         point.setText("Punti: $punti")
-        testo.setText("-Che cosa fara' Wojak Mascherato?")
+        testo.setText("-Che cosa fara' "+username+"?")
         salute.setText("PS: $ps / $psmax")
 
 
@@ -105,12 +121,12 @@ class GameActivity : AppCompatActivity() {
             }
 
             salute.setText("PS: $ps / $psmax")
-            testo.text=Stringa+"\n"+"-Il colpo devastante del Boss Gigachad infligge a Wojak Mascherato la bellezza di $roll PS di danno!"
+            testo.text=Stringa+"\n"+"-Il colpo devastante del Boss Gigachad infligge a "+username+" la bellezza di $roll PS di danno!"
 
             attaccoB= (attaccoB*1.20).toInt()
-            mul= mul*2
+            attacco=(attacco*1.20).toInt()
             Stringa=(testo.text).toString()
-            testo.text=Stringa+"\n"+"-Il Boss Gigachad trabocca di potere e la sua caacita' offensiva aumenta sensibilmente!"
+            testo.text=Stringa+"\n"+"-Il Boss Gigachad trabocca di potere e la sua capcita' offensiva aumenta sensibilmente!"
             turno= turno+1
 
             turn.setText("Turno: $turno")
@@ -147,7 +163,7 @@ class GameActivity : AppCompatActivity() {
 
             salute.setText("PS: $ps / $psmax")
             Stringa=(testo.text).toString()
-            testo.text=Stringa+"\n"+"-Il Boss Gigachad contrattacca infliggendo a Wojak Mascherato $roll PS di danno!"
+            testo.text=Stringa+"\n"+"-Il Boss Gigachad contrattacca infliggendo a "+username+" $roll PS di danno!"
 
             if((turno+1)%10==0){
                 Stringa=(testo.text).toString()
@@ -175,7 +191,7 @@ class GameActivity : AppCompatActivity() {
 
         punti= punti+roll
         point.setText("Punti: $punti")
-        testo.setText("-Wojak Mascherato attacca infliggendo $roll PS di danno al Boss Gigachad!")
+        testo.setText("-"+username+" attacca infliggendo $roll PS di danno al Boss Gigachad!")
 
 
         TurnoBoss()
@@ -192,7 +208,7 @@ class GameActivity : AppCompatActivity() {
 
         punti= punti+roll
         point.setText("Punti: $punti")
-        testo.setText("-Wojak Mascherato sferra un attacco a piena potenza infliggendo $roll PS di danno al Boss Gigachad restando tuttavia scoperto per il contrattacco nemico!")
+        testo.setText("-"+username+" sferra un attacco a piena potenza infliggendo $roll PS di danno al Boss Gigachad restando tuttavia scoperto per il contrattacco nemico!")
 
         TurnoBoss()
     }
@@ -201,7 +217,7 @@ class GameActivity : AppCompatActivity() {
 
         val testo: TextView = findViewById(R.id.textViewCronistoria)
         stato=2
-        testo.setText("-Wojak Mascherato assume una posizione di guardia per ridurre i danni del prossimo attacco!")
+        testo.setText("-"+username+" assume una posizione di guardia per ridurre i danni del prossimo attacco!")
         TurnoBoss()
     }
 
@@ -213,7 +229,7 @@ class GameActivity : AppCompatActivity() {
         val prima=ps
         val dopo:Int
         if(scarto==0){
-            testo.setText("-Wojak Mascherato e' talmente stunnato da provare a curarsi pur essendo in piena salute...")
+            testo.setText("-In preda alla confusione "+username+" prova a curarsi pur essendo in piena salute...")
         }
         else {
             ps = ps + psmax / 2
@@ -222,7 +238,7 @@ class GameActivity : AppCompatActivity() {
             }
             dopo=ps-prima
             salute.setText("PS: $ps / $psmax")
-            testo.setText("-Wojak Mascherato ha recuperto $dopo PS!")
+            testo.setText("-"+username+" ha recuperto $dopo PS!")
         }
         TurnoBoss()
     }
@@ -239,11 +255,18 @@ class GameActivity : AppCompatActivity() {
 
     private fun Endgame(){
 
-        val intent = Intent(this@GameActivity,ResultsActivity::class.java)
-        intent.putExtra("Punti", punti)
-        intent.putExtra("Turno", turno)
-        intent.putExtra("Tipo", tipo)
-        startActivity(intent)
+        if(tipo==0){
+            val intent = Intent(this@GameActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else {
+            val intent = Intent(this@GameActivity, ResultsActivity::class.java)
+            intent.putExtra("Punti", punti)
+            intent.putExtra("Turno", turno)
+            startActivity(intent)
+            finish()
+        }
     }
 
   /*  private fun Quit(){
