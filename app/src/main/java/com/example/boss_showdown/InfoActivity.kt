@@ -1,16 +1,9 @@
 package com.example.boss_showdown
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.boss_showdown.databinding.ActivityInfoBinding
-import kotlinx.android.synthetic.main.fragmenttext.*
 
 class InfoActivity : AppCompatActivity() {
 

@@ -262,18 +262,18 @@ class GameActivity : AppCompatActivity() {
         }
         else {
             val intent = Intent(this@GameActivity, ResultsActivity::class.java)
+            totalpoints=totalpoints+punti
+            if(totalpoints>2000000000){
+                totalpoints=2000000000
+            }
             intent.putExtra("Punti", punti)
-            intent.putExtra("Turno", turno)
+            intent.putExtra("Turni", turno)
+            intent.putExtra("id", uid)
+            intent.putExtra("Livello", livello)
+            intent.putExtra("Totale", totalpoints.toInt())
+            intent.putExtra("Username", username)
             startActivity(intent)
             finish()
         }
     }
-
-  /*  private fun Quit(){
-
-        val intent = Intent(this@GameActivity,MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }*/
-
 }
