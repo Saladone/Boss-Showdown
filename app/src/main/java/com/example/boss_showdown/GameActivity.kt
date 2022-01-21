@@ -1,6 +1,7 @@
 package com.example.boss_showdown
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ class GameActivity : AppCompatActivity() {
     //stato=1: Guardia bassa
     //stato=2: Guardia alta
 
+  //  private var mp: MediaPlayer? = null
 
     private var tipo=0
     private var uid: String=""

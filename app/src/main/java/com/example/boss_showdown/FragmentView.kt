@@ -18,7 +18,7 @@ class FragmentView() : Fragment(R.layout.fragmentview) {
         val pos = args?.get("data")
 
         if(pos==0){
-            img.setImageResource(R.drawable.potentialbackground)
+            img.setImageResource(R.drawable.s0)
         }
         if(pos==1){
             img.setImageResource(R.drawable.bg001)
