@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BossShowdown">
         <activity
+            android:name=".LeaderboardActivity"
+            android:exported="true" />
+        <activity
             android:name=".ResultsActivity"
             android:exported="true" />
         <activity
@@ -17,16 +20,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".GameActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MenuActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".InfoActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

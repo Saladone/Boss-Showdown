@@ -60,8 +60,10 @@ class MenuActivity : AppCompatActivity() {
     }
 
 
-    fun gotoScoreboard(view: View) {
+    fun gotoLeaderboard(view: View) {
 
+        val intent = Intent(this@MenuActivity,LeaderboardActivity::class.java)
+        startActivity(intent)
 
     }
 
