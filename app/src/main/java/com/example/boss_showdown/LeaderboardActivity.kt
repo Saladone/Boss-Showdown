@@ -44,12 +44,17 @@ class LeaderboardActivity : AppCompatActivity() {
 
                         val username: String = userSnapshot.child("username").value.toString()
                         val punti: Int = userSnapshot.child("punti").value.toString().toInt()
-                        val user = UtentexClassifica(username,punti)
+                        val user = UtentexClassifica(username,0,punti)
                         userArrayList.add(user!!)
 
                     }
                     userArrayList.sortByDescending {
                         it.punti
+                    }
+                    var pos: Int=0
+                    userArrayList.forEach {
+                        it.posizione=pos
+                        pos=pos+1
                     }
                     userRecyclerview.adapter = Adapter(userArrayList)
 

@@ -22,6 +22,7 @@ class Adapter(private val userList : ArrayList<UtentexClassifica>) : RecyclerVie
         val currentitem = userList[position]
 
         holder.username.text = currentitem.username
+        holder.posizione.text = currentitem.posizione.toString()
         holder.punti.text = currentitem.punti.toString()
 
     }
@@ -35,6 +36,7 @@ class Adapter(private val userList : ArrayList<UtentexClassifica>) : RecyclerVie
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
         val username : TextView = itemView.findViewById(R.id.tvusername)
+        val posizione : TextView = itemView.findViewById(R.id.tvposizione)
         val punti : TextView = itemView.findViewById(R.id.tvpunti)
 
     }
