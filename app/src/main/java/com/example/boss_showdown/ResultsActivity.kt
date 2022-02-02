@@ -58,6 +58,9 @@ class ResultsActivity : AppCompatActivity() {
         if(nuovolivello<=livello && nextlevel!=0){
             esperienza.setText("Ti mancano $nextlevel punti esperienza per il prossimo livello.")
         }
+        if(totale>=2000000000){
+            esperienza.setText("Hai raggiunto il massimo numero possibile di punti accumulabili in questo gioco!\nMi auguro di cuore che sia stata un'esperienza divertente.")
+        }
 
         binding.buttonSaveReturn.setOnClickListener{
             database= FirebaseDatabase.getInstance("https://boss-showdown-default-rtdb.europe-west1.firebasedatabase.app").getReference("Utenti")
