@@ -1,14 +1,11 @@
 package com.example.boss_showdown
 
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragmentview.*
 
 class FragmentView() : Fragment(R.layout.fragmentview) {
 
@@ -21,7 +18,7 @@ class FragmentView() : Fragment(R.layout.fragmentview) {
         val pos = args?.get("data")
 
         if(pos==0){
-            img.setImageResource(R.drawable.potentialbackground)
+            img.setImageResource(R.drawable.s0)
         }
         if(pos==1){
             img.setImageResource(R.drawable.bg001)

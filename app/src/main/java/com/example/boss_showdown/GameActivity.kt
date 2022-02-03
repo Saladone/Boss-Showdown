@@ -1,8 +1,10 @@
 package com.example.boss_showdown
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 
@@ -12,6 +14,8 @@ class GameActivity : AppCompatActivity() {
     //stato=1: Guardia bassa
     //stato=2: Guardia alta
 
+    private var mp: MediaPlayer? = null
+    private var currentSong = mutableListOf(R.raw.bossbattle,R.raw.rayquaza,R.raw.bossbattle2,R.raw.dialga,R.raw.palkia,R.raw.finale,R.raw.legend,R.raw.yveltal,R.raw.finale2,R.raw.legend2)
 
     private var tipo=0
     private var uid: String=""
@@ -48,9 +52,38 @@ class GameActivity : AppCompatActivity() {
             uid=intent.getStringExtra("id").toString()
         }
         SetGame(livello)
-     //   val testo: TextView = findViewById(R.id.textViewCronistoria)
 
+        val rand:Int=(0 until currentSong.size).random()
+        mp = MediaPlayer.create(this,currentSong[rand])
+        Log.d("GameActivity", "ID: ${mp!!.audioSessionId}")
+        mp?.start()
+        mp?.isLooping=true
+        Log.d("GameActivity", "Durata: ${mp!!.duration/1000} secondi")
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if(mp!=null) mp?.pause()
+        Log.d("GameActivity", "Pausa a: ${mp!!.currentPosition/1000} secondi")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mp?.start()
+        mp?.isLooping=true
+        Log.d("GameActivity", "Durata: ${mp!!.duration/1000} secondi")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if(mp!=null){
+            mp?.stop()
+            mp?.reset()
+            mp?.release()
+            mp=null
+        }
     }
 
     private fun SetGame(livello: Int){
@@ -262,18 +295,18 @@ class GameActivity : AppCompatActivity() {
         }
         else {
             val intent = Intent(this@GameActivity, ResultsActivity::class.java)
+            totalpoints=totalpoints+punti
+            if(totalpoints>2000000000){
+                totalpoints=2000000000
+            }
             intent.putExtra("Punti", punti)
-            intent.putExtra("Turno", turno)
+            intent.putExtra("Turni", turno)
+            intent.putExtra("id", uid)
+            intent.putExtra("Livello", livello)
+            intent.putExtra("Totale", totalpoints.toInt())
+            intent.putExtra("Username", username)
             startActivity(intent)
             finish()
         }
     }
-
-  /*  private fun Quit(){
-
-        val intent = Intent(this@GameActivity,MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }*/
-
 }

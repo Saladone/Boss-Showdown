@@ -33,14 +33,13 @@ class MenuActivity : AppCompatActivity() {
 
     private fun LevelUp(points: Int){
 
-        var exp:Int=points
         val lvl: TextView = findViewById(R.id.textViewLevel)
         val punti: TextView = findViewById(R.id.textViewTotPoints)
         val attplus: TextView = findViewById(R.id.textViewAttMod)
         val defplus: TextView = findViewById(R.id.textViewDefMod)
         val psplus: TextView = findViewById(R.id.textViewPsMod)
         var nextLevel=1500  //max: 1837500
-        while(exp>=nextLevel && livello<50){
+        while(points>=nextLevel && livello<50){
             livello=livello+1
             mod=mod+5
             nextLevel=nextLevel+1500*livello
@@ -61,8 +60,10 @@ class MenuActivity : AppCompatActivity() {
     }
 
 
-    fun gotoScoreboard(view: View) {
+    fun gotoLeaderboard(view: View) {
 
+        val intent = Intent(this@MenuActivity,LeaderboardActivity::class.java)
+        startActivity(intent)
 
     }
 
